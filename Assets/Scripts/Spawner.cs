@@ -8,26 +8,21 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     public KeyCode colles = KeyCode.F;
 
-    public GameObject mob;
-    public GameObject cubes;
+    public float espace = 0;
+
+    public GameObject terrain;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Faire apparaître un mob :
-        //Instantiate(mob);
-
+        for (int i = 0; i < 100; i++)
+        {
+            Instantiate(terrain, new Vector3(i, 0, i), Quaternion.identity);
+        }
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Faire apparaître un mob, à la position 0, à la rotation 0
-        if (Input.GetKeyDown(spawn))
-            Instantiate(mob, Vector3.zero , Quaternion.identity);
-
-        if (Input.GetKeyDown(colles))
-            Instantiate(cubes, Vector3.zero, Quaternion.identity);
-
     }
 }
