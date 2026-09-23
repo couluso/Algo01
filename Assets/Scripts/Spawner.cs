@@ -12,7 +12,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //PLATEFORME
+        //PLATEFORME sol
         for (int i = 0; i < 60; i++)
         {
             for (int j = 0; j < 60; j++)
@@ -28,11 +28,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
 
 
+        //murs
         for (int i = 0; i < 60; i++)
         {
             for (int j = 0; j < 60; j++)
             {
-                //Si je suis sur un bord
                 if (i == 0 || j == 0 || i == 59 || j == 59)
                 {
                     Instantiate(terrain, new Vector3(i, 1, j), Quaternion.identity);
@@ -49,6 +49,26 @@ public class NewMonoBehaviourScript : MonoBehaviour
                         }
                     }
                 }
+            }
+        }
+
+
+
+        //generation murs procedural
+        for (int i = 0; i < 60; i++)
+        {
+            for (int j = 0; j < 60; j++)
+            {
+
+                if (Random.Range(0, 6) == 10)
+                {
+                    Instantiate(terrain, new Vector3(i, 1, j), Quaternion.identity);
+                    Instantiate(terrain, new Vector3(i, 2, j), Quaternion.identity);
+                    Instantiate(terrain, new Vector3(i, 3, j), Quaternion.identity);
+                    Instantiate(terrain, new Vector3(i, 4, j), Quaternion.identity);
+
+                }
+
             }
         }
     }
