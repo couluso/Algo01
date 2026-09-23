@@ -18,14 +18,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
     void Start()
     {
         //PLATEFORME
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 60; i++)
         {
-            for (int j = 0; j < 50; j++)
+            for (int j = 0; j < 60; j++)
             {
-                float perlinY = Mathf.PerlinNoise(i * 0.05f, j * -0.05f) * 3;
-                if (Random.Range(0, 10) != 0)
+
+                if (Random.Range(0, 10) != 11)
                 {
-                    Instantiate(terrain, new Vector3(i, perlinY, j), Quaternion.identity);
+                    Instantiate(terrain, new Vector3(i, 0, j), Quaternion.identity);
 
                 }
 
@@ -33,17 +33,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
 
 
-        for (int i = 0; i <= 50; i++)
+        for (int i = 0; i < 60; i++)
         {
-            for (int j = 0; j < 50; j++)
+            for (int j = 0; j < 60; j++)
             {
                 //Si je suis sur un bord
-                if (i == 0 || j == 0 || i == 49 || j == 49)
+                if (i == 0 || j == 0 || i == 59 || j == 59)
                 {
                     Instantiate(terrain, new Vector3(i, 1, j), Quaternion.identity);
                     Instantiate(terrain, new Vector3(i, 2, j), Quaternion.identity);
+                    Instantiate(terrain, new Vector3(i, 3, j), Quaternion.identity);
+                    Instantiate(terrain, new Vector3(i, 4, j), Quaternion.identity);
+                    Instantiate(terrain, new Vector3(i, 5, j), Quaternion.identity);
 
-                    if (i == 0 && j == 0 || i == 0 && j == 49 || i == 49 && j == 49 || i == 49 && j == 0)
+                    if (i == 0 && j == 0 || i == 0 && j == 59 || i == 59 && j == 59 || i == 59 && j == 0)
                     {
                         for (int k = 0; k < 10; k++)
                         {
