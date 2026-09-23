@@ -17,7 +17,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             for (int j = 0; j < 60; j++)
             {
-                if (Random.Range(0, 10) != 0)
+
+                if (Random.Range(0, 10) != 11)
                 {
                     Instantiate(terrain, new Vector3(i, 0, j), Quaternion.identity);
 
@@ -27,7 +28,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
 
 
-        for (int i = 0; i <= 60; i++)
+        for (int i = 0; i < 60; i++)
         {
             for (int j = 0; j < 60; j++)
             {
@@ -36,6 +37,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 {
                     Instantiate(terrain, new Vector3(i, 1, j), Quaternion.identity);
                     Instantiate(terrain, new Vector3(i, 2, j), Quaternion.identity);
+                    Instantiate(terrain, new Vector3(i, 3, j), Quaternion.identity);
+                    Instantiate(terrain, new Vector3(i, 4, j), Quaternion.identity);
+                    Instantiate(terrain, new Vector3(i, 5, j), Quaternion.identity);
 
                     if (i == 0 && j == 0 || i == 0 && j == 59 || i == 59 && j == 59 || i == 59 && j == 0)
                     {
