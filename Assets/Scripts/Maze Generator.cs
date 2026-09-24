@@ -16,16 +16,17 @@ public class MazeGenerator : MonoBehaviour
 
     private MazeCell[,] _mazeGrid;
 
-    //generation lab
+    //generation labyrinthe
     IEnumerator Start()
     {
         _mazeGrid = new MazeCell[_mazeWidth, _mazeDepth];
 
-        for (int x = 0; x < _mazeWidth; x++)
+        for (int x = 0; x < _mazeWidth; x+=3)
         {
-            for (int z = 0; z < _mazeDepth; z++)
+            for (int z = 0; z < _mazeDepth; z+=3)
             {
                 _mazeGrid[x, z] = Instantiate(_mazeCellPrefab, new Vector3(x, 0, z), Quaternion.identity); // début du lab
+                Debug.Log(x + " " + z);
             }
         }
 
@@ -66,9 +67,9 @@ public class MazeGenerator : MonoBehaviour
         int x = (int)currentCell.transform.position.x;
         int z = (int)currentCell.transform.position.z;
 
-        if (x + 1 < _mazeWidth)
+        if (x + 3 < _mazeWidth)
         {
-            var cellToRight = _mazeGrid[x + 1, z];
+            var cellToRight = _mazeGrid[x + 3, z];
 
             if (cellToRight.IsVisited == false)
             {
@@ -76,9 +77,9 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        if (x - 1 >= 0)
+        if (x - 3 >= 0)
         {
-            var cellToLeft = _mazeGrid[x - 1, z];
+            var cellToLeft = _mazeGrid[x - 3, z];
 
             if (cellToLeft.IsVisited == false)
             {
@@ -86,9 +87,9 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        if (z + 1 < _mazeDepth)
+        if (z + 3 < _mazeDepth)
         {
-            var cellToFront = _mazeGrid[x, z + 1];
+            var cellToFront = _mazeGrid[x, z + 3];
 
             if (cellToFront.IsVisited == false)
             {
@@ -96,15 +97,16 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        if (z - 1 >= 0)
+        if (z - 3 >= 0)
         {
-            var cellToBack = _mazeGrid[x, z - 1];
+            var cellToBack = _mazeGrid[x, z - 3];
 
             if (cellToBack.IsVisited == false)
             {
                 yield return cellToBack;
             }
         }
+        Debug.Log(x + " chemin " + z);
     }
 
     //retire les murs
