@@ -9,23 +9,26 @@ public class MazeGenerator : MonoBehaviour
     private MazeCell _mazeCellPrefab;
 
     [SerializeField]
-    private int _mazeWidth;
+    private int Longueur;
 
     [SerializeField]
-    private int _mazeDepth;
+    private int Largeur;
+
+    [SerializeField]
+    private bool Délai;
 
     private MazeCell[,] _mazeGrid;
 
-    //generation lab
+    //generation de la grille
     IEnumerator Start()
     {
-        _mazeGrid = new MazeCell[_mazeWidth, _mazeDepth];
+        _mazeGrid = new MazeCell[Longueur, Largeur];
 
-        for (int x = 0; x < _mazeWidth; x++)
+        for (int x = 0; x < Longueur; x++)
         {
-            for (int z = 0; z < _mazeDepth; z++)
+            for (int z = 0; z < Largeur; z++)
             {
-                _mazeGrid[x, z] = Instantiate(_mazeCellPrefab, new Vector3(x, 0, z), Quaternion.identity); // début du lab
+                _mazeGrid[x, z] = Instantiate(_mazeCellPrefab, new Vector3(x, 0, z), Quaternion.identity);  //Créer les cases
             }
         }
 
@@ -38,7 +41,12 @@ public class MazeGenerator : MonoBehaviour
         currentCell.Visit();
         ClearWalls(previousCell, currentCell);
 
-        yield return new WaitForSeconds(0.05f);
+
+        if (Délai == true)
+        {
+            yield return new WaitForSeconds(0.005f);
+        }
+
 
         MazeCell nextCell;
 
@@ -66,7 +74,7 @@ public class MazeGenerator : MonoBehaviour
         int x = (int)currentCell.transform.position.x;
         int z = (int)currentCell.transform.position.z;
 
-        if (x + 1 < _mazeWidth)
+        if (x + 1 < Longueur)
         {
             var cellToRight = _mazeGrid[x + 1, z];
 
@@ -86,7 +94,7 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        if (z + 1 < _mazeDepth)
+        if (z + 1 < Largeur)
         {
             var cellToFront = _mazeGrid[x, z + 1];
 
