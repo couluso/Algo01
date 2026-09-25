@@ -250,7 +250,7 @@ public class MazeGenerator : MonoBehaviour
 
     private void CreateRandomOpenings()
     {
-        for (int i = 0; i < _nombreOuvertures * 20; i++)
+        for (int i = 0; i < _nombreOuvertures * 30; i++)
         {
             // S'il n'y a plus de cellules disponibles
             if (_interiorCells.Count == 0)
