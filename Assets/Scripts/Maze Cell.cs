@@ -1,21 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class MazeCell : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _leftWall;
+    public GameObject _leftWall;
 
     [SerializeField]
-    private GameObject _rightWall;
+    public GameObject _rightWall;
 
     [SerializeField]
-    private GameObject _frontWall;
+    public GameObject _frontWall;
 
     [SerializeField]
-    private GameObject _backWall;
+    public GameObject _backWall;
 
     [SerializeField]
     private GameObject _unvisitedBlock;
+   
+    public GameObject _light;
 
     public bool IsVisited { get; private set; }
 
@@ -44,6 +50,4 @@ public class MazeCell : MonoBehaviour
     {
         _backWall.SetActive(false);
     }
-
 }
-
