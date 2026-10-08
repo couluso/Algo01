@@ -812,9 +812,13 @@ PrefabInstance:
       propertyPath: m_InnerSpotAngle
       value: 140
       objectReference: {fileID: 0}
+    - target: {fileID: 7760389479125799458, guid: c2fe688021368884698eb8a5300bc230, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8040748324882008515, guid: c2fe688021368884698eb8a5300bc230, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8584342979545127352, guid: c2fe688021368884698eb8a5300bc230, type: 3}
       propertyPath: m_CastShadows

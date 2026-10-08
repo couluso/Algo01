@@ -158,7 +158,7 @@ MonoBehaviour:
   _mazeWidth: 60
   compteur_orbe: 10
   _nombreOuvertures: 10
-  "D\xE9lai": 1
+  "D\xE9lai": 0
 --- !u!4 &183206170
 Transform:
   m_ObjectHideFlags: 0

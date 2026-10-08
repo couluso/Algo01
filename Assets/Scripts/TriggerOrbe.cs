@@ -11,6 +11,6 @@ public class TriggerOrbe : MonoBehaviour
     {
         coins++;
         Orbe.gameObject.SetActive(false);
-        texte.GetComponent<TextMeshProUGUI>().text = "Orbes collectées : " + coins;
+        texte.GetComponent<TextMeshProUGUI>().text = "Orbes collectées : " + coins +"/10";
     }
 }
